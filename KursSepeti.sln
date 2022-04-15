@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FB6F9A6C-8FC7-4259-9939-AC6F13AFD311}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{9B415F70-D8F3-4B53-9ED5-86D436302FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Catalog", "Services\Catalog\KursSepeti.Services.Catalog\KursSepeti.Services.Catalog.csproj", "{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77040360-083E-48BA-8AD3-C22D3372CCE3}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B415F70-D8F3-4B53-9ED5-86D436302FA3} = {FB6F9A6C-8FC7-4259-9939-AC6F13AFD311}
+		{2A8518E7-E11D-4BDC-B1F8-ECBFF1C22ADE} = {9B415F70-D8F3-4B53-9ED5-86D436302FA3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8147F15F-FE4B-435D-AD2E-E0197A87CE74}
+	EndGlobalSection
+EndGlobal
