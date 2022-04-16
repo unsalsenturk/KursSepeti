@@ -42,5 +42,17 @@ namespace KursSepeti.Services.Catalog.Services
             return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category), 201);
 
         }
+
+        public async Task<Response<CategoryDto>> GetByIdAsync(string id)
+        {
+            var category = await _categoryCollection.Find<Category>(x => x.Id == id).FirstOrDefaultAsync();
+
+            if (category == null)
+            {
+                return Response<CategoryDto>.Fail("Category not fount", 404);
+            }
+
+            return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category), 200);
+        }
     }
 }
