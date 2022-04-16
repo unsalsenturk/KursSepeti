@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace KursSepeti.Services.Catalog.Dtos
 {
-    public class FeatureDto
+    internal class FeatureDto
     {
         public int Duration { get; set; }
 
