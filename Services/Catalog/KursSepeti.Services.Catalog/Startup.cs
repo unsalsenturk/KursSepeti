@@ -1,3 +1,4 @@
+using KursSepeti.Services.Catalog.Services;
 using KursSepeti.Services.Catalog.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,9 @@ namespace KursSepeti.Services.Catalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Services
+            services.AddScoped<ICategoryService, CategoryService>();
+            #endregion
             #region AutoMapper
             services.AddAutoMapper(typeof(Startup));
             #endregion
