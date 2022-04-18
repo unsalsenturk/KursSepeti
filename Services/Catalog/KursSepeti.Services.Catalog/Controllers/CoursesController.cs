@@ -52,5 +52,12 @@ namespace KursSepeti.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> Update(CourseUpdateDto courseUpdateDto)
+        {
+            var response = await _courseService.UpdateAsync(courseUpdateDto);
+
+            return CreateActionResultInstance(response);
+        }
     }
 }
