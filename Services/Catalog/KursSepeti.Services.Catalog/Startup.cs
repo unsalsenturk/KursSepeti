@@ -30,6 +30,7 @@ namespace KursSepeti.Services.Catalog
         {
             #region Services
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICourseService, CourseService>();
             #endregion
             #region AutoMapper
             services.AddAutoMapper(typeof(Startup));
