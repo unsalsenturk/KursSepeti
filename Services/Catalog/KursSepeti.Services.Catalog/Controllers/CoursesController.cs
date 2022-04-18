@@ -1,4 +1,5 @@
 ﻿using KursSepeti.Services.Catalog.Services;
+using KursSepeti.Shared.ControllerBases;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ namespace KursSepeti.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    internal class CoursesController : ControllerBase
+    internal class CoursesController : CustomBaseController
     {
         private readonly ICourseService _courseService;
 
