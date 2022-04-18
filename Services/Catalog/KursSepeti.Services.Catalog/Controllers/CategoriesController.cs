@@ -1,4 +1,5 @@
-﻿using KursSepeti.Services.Catalog.Services;
+﻿using KursSepeti.Services.Catalog.Dtos;
+using KursSepeti.Services.Catalog.Services;
 using KursSepeti.Shared.ControllerBases;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,14 @@ namespace KursSepeti.Services.Catalog.Controllers
             var category = await _categoryService.GetByIdAsync(id);
 
             return CreateActionResultInstance(category);
+        }
+
+        public async Task<IActionResult> Create(CategoryDto categoryDto)
+        {
+            var response = await _categoryService.CreateAsync(categoryDto);
+
+            return CreateActionResultInstance(response);
+
         }
     }
 }
