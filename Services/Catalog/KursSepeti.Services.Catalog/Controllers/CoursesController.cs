@@ -59,5 +59,13 @@ namespace KursSepeti.Services.Catalog.Controllers
 
             return CreateActionResultInstance(response);
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var response = await _courseService.DeleteAsync(id);
+
+            return CreateActionResultInstance(response);
+        }
     }
 }
