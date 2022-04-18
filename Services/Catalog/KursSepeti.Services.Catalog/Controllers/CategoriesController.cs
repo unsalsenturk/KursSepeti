@@ -26,5 +26,13 @@ namespace KursSepeti.Services.Catalog.Controllers
 
             return CreateActionResultInstance(categories);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var category = await _categoryService.GetByIdAsync(id);
+
+            return CreateActionResultInstance(category);
+        }
     }
 }
