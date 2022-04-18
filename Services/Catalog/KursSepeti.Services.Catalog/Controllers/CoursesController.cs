@@ -34,5 +34,13 @@ namespace KursSepeti.Services.Catalog.Controllers
 
             return CreateActionResultInstance(response);
         }
+
+        [Route("/api/[controller]/GetByUserId/{userId}")]
+        public async Task<IActionResult> GetAllByUserId(string userid)
+        {
+            var response = await _courseService.GetAllByUserIdAsync(userid);
+
+            return CreateActionResultInstance(response);
+        }
     }
 }
