@@ -29,6 +29,7 @@ namespace KursSepeti.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var response = await _courseService.GetAllAsync();
@@ -36,6 +37,7 @@ namespace KursSepeti.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
+        [HttpPost]
         [Route("/api/[controller]/GetByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userid)
         {
