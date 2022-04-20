@@ -1,8 +1,10 @@
 using KursSepeti.Services.Catalog.Services;
 using KursSepeti.Services.Catalog.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +30,15 @@ namespace KursSepeti.Services.Catalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = Configuration["IdentitityServerURL"];
+                options.Audience = "resource_catalog";
+                options.RequireHttpsMetadata = false;
+
+            });
+            #endregion
             #region Services
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICourseService, CourseService>();
@@ -35,7 +46,12 @@ namespace KursSepeti.Services.Catalog
             #region AutoMapper
             services.AddAutoMapper(typeof(Startup));
             #endregion
-            services.AddControllers();
+            #region Add Authorize For All Controller
+            services.AddControllers(opt =>
+            {
+                opt.Filters.Add(new AuthorizeFilter());
+            });
+            #endregion
             #region DatabaseSettings
             services.Configure<DatabaseSettings>(Configuration.GetSection("DatabaseSettings"));
             services.AddSingleton<IDatabaseSettings>(sp =>
@@ -47,6 +63,7 @@ namespace KursSepeti.Services.Catalog
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KursSepeti.Services.Catalog", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +78,7 @@ namespace KursSepeti.Services.Catalog
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
