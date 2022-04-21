@@ -5,6 +5,7 @@
 using IdentityServer4;
 using KursSepeti.IdentityServer.Data;
 using KursSepeti.IdentityServer.Models;
+using KursSepeti.IdentityServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -55,6 +56,9 @@ namespace KursSepeti.IdentityServer
                 .AddInMemoryClients(Config.Clients)
                 .AddAspNetIdentity<ApplicationUser>();
 
+            #region Resource owner password: Identity Grant Type
+            builder.AddResourceOwnerValidator<IdentityResourceOwnerPasswordValidator>();
+            #endregion
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
