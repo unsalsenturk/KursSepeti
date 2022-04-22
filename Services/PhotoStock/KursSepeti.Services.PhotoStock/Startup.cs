@@ -42,7 +42,9 @@ namespace KursSepeti.Services.PhotoStock
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "KursSepeti.Services.PhotoStock v1"));
             }
-
+            #region public access
+            app.UseStaticFiles();
+            #endregion
             app.UseRouting();
 
             app.UseAuthorization();
