@@ -33,6 +33,8 @@ namespace KursSepeti.Services.Basket
 
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
+            services.AddScoped<IBasketService, BasketService>();
+
             services.Configure<RedisSettings>(Configuration.GetSection("RedisSettings"));
 
             services.AddSingleton<RedisService>(sp =>
