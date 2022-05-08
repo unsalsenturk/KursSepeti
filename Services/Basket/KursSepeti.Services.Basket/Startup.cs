@@ -1,9 +1,12 @@
 using KursSepeti.Services.Basket.Services;
 using KursSepeti.Services.Basket.Settings;
 using KursSepeti.Shared.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +15,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,6 +33,19 @@ namespace KursSepeti.Services.Basket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Authentication
+
+            var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.Authority = Configuration["IdentityServerURL"];
+                options.Audience = "resource_basket";
+                options.RequireHttpsMetadata = false;
+            });
+            #endregion
+
             services.AddHttpContextAccessor();
 
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
@@ -47,7 +64,10 @@ namespace KursSepeti.Services.Basket
                 return redis;
             });
 
-            services.AddControllers();
+            services.AddControllers(opt =>
+            {
+                opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KursSepeti.Services.Basket", Version = "v1" });
@@ -65,7 +85,7 @@ namespace KursSepeti.Services.Basket
             }
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
