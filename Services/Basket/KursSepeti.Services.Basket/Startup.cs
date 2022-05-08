@@ -1,5 +1,6 @@
 using KursSepeti.Services.Basket.Services;
 using KursSepeti.Services.Basket.Settings;
+using KursSepeti.Shared.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,9 @@ namespace KursSepeti.Services.Basket
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
+
+            services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+
             services.Configure<RedisSettings>(Configuration.GetSection("RedisSettings"));
 
             services.AddSingleton<RedisService>(sp =>
