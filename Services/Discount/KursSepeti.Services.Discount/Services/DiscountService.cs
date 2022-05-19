@@ -36,9 +36,18 @@ namespace KursSepeti.Services.Discount.Services
             return Response<List<Models.Discount>>.Success(discounts.ToList(), 200);
         }
 
-        public Task<Response<Models.Discount>> GetByCodeAndUserId(string code, string userId)
+        public async Task<Response<Models.Discount>> GetByCodeAndUserId(string code, string userId)
         {
-            throw new NotImplementedException();
+            var discounts = await _dbConnection.QueryAsync<Models.Discount>("select * from discount where userid=@UserId and code=@Code", new { UserId = userId, Code = code });
+
+            var hasDiscount = discounts.FirstOrDefault();
+
+            if (hasDiscount == null)
+            {
+                return Response<Models.Discount>.Fail("Discount not found", 404);
+            }
+
+            return Response<Models.Discount>.Success(hasDiscount, 200);
         }
 
         public async Task<Response<Models.Discount>> GetById(int id)
