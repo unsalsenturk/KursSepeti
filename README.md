@@ -3,3 +3,6 @@
  
 # Mimari
 ![microservice_mimari](https://user-images.githubusercontent.com/58951759/164555751-0d72fc70-4e03-4025-af04-00dac69509e5.png)
+
+# Udemy link
+[.Net 5.0 İle Microservices](https://www.udemy.com/share/104kOO/)
