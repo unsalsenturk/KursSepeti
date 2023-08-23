@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FB6F9A6C-8FC7-4259-9939-AC6F13AFD311}"
 EndProject
@@ -32,7 +32,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursSepeti.Services.Basket"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{36D6862E-A455-4DD2-B846-4AB77D3927D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Discount", "Services\Discount\KursSepeti.Services.Discount\KursSepeti.Services.Discount.csproj", "{BE500A27-B9B2-4902-8EEC-1C74ACD7338F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursSepeti.Services.Discount", "Services\Discount\KursSepeti.Services.Discount\KursSepeti.Services.Discount.csproj", "{BE500A27-B9B2-4902-8EEC-1C74ACD7338F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Service.Order.API", "Services\Order\KursSepeti.Service.Order.API\KursSepeti.Service.Order.API.csproj", "{6403121E-FAFE-4A85-9DE6-E28F71F38C90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Order.Application", "Services\Order\KursSepeti.Services.Order.Application\KursSepeti.Services.Order.Application.csproj", "{003FD2B6-90C3-459A-8773-48404B029005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Order.Domain", "Services\Order\KursSepeti.Services.Order.Domain\KursSepeti.Services.Order.Domain.csproj", "{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Order.Domain.Core", "Services\Order\KursSepeti.Services.Order.Domain.Core\KursSepeti.Services.Order.Domain.Core.csproj", "{32A3D6F3-B94B-4FD8-8A11-529E11556D38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursSepeti.Services.Order.Infrastructure", "Services\Order\KursSepeti.Services.Order.Infrastructure\KursSepeti.Services.Order.Infrastructure.csproj", "{35EA609F-85EE-4B7B-BBEB-345F95CBAED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +76,26 @@ Global
 		{BE500A27-B9B2-4902-8EEC-1C74ACD7338F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE500A27-B9B2-4902-8EEC-1C74ACD7338F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE500A27-B9B2-4902-8EEC-1C74ACD7338F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6403121E-FAFE-4A85-9DE6-E28F71F38C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6403121E-FAFE-4A85-9DE6-E28F71F38C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6403121E-FAFE-4A85-9DE6-E28F71F38C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6403121E-FAFE-4A85-9DE6-E28F71F38C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{003FD2B6-90C3-459A-8773-48404B029005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{003FD2B6-90C3-459A-8773-48404B029005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{003FD2B6-90C3-459A-8773-48404B029005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{003FD2B6-90C3-459A-8773-48404B029005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A3D6F3-B94B-4FD8-8A11-529E11556D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A3D6F3-B94B-4FD8-8A11-529E11556D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A3D6F3-B94B-4FD8-8A11-529E11556D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A3D6F3-B94B-4FD8-8A11-529E11556D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35EA609F-85EE-4B7B-BBEB-345F95CBAED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EA609F-85EE-4B7B-BBEB-345F95CBAED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EA609F-85EE-4B7B-BBEB-345F95CBAED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EA609F-85EE-4B7B-BBEB-345F95CBAED5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +111,12 @@ Global
 		{27719C19-3F79-4042-A23D-51751EDB9FA8} = {D560CA57-DF8D-44A1-A4E0-8D29E767337C}
 		{36D6862E-A455-4DD2-B846-4AB77D3927D5} = {FB6F9A6C-8FC7-4259-9939-AC6F13AFD311}
 		{BE500A27-B9B2-4902-8EEC-1C74ACD7338F} = {36D6862E-A455-4DD2-B846-4AB77D3927D5}
+		{AFF49B9A-5B85-4D08-9BB9-BB1A25C58015} = {FB6F9A6C-8FC7-4259-9939-AC6F13AFD311}
+		{6403121E-FAFE-4A85-9DE6-E28F71F38C90} = {AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}
+		{003FD2B6-90C3-459A-8773-48404B029005} = {AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}
+		{B6333AB1-2CF5-4F05-8B80-A07B5F533BB0} = {AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}
+		{32A3D6F3-B94B-4FD8-8A11-529E11556D38} = {AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}
+		{35EA609F-85EE-4B7B-BBEB-345F95CBAED5} = {AFF49B9A-5B85-4D08-9BB9-BB1A25C58015}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8147F15F-FE4B-435D-AD2E-E0197A87CE74}
