@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 
 namespace KursSepeti.Services.Order.Domain.OrderAggregate
 {
@@ -14,6 +15,7 @@ namespace KursSepeti.Services.Order.Domain.OrderAggregate
 
         public IReadOnlyCollection<OrderItem> OrderItems { get { return _orderItems; } }
 
+        public Order() { }
         public Order(string buyerId, Address address)
         {
             _orderItems = new List<OrderItem>();
