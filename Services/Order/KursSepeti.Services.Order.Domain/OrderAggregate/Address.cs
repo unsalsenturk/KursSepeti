@@ -5,11 +5,11 @@ namespace KursSepeti.Services.Order.Domain.OrderAggregate
 {
     public class Address : ValueObject
     {
-        public string Province { get; private set; }
-        public string District { get; private set; }
-        public string Street { get; private set; }
-        public string ZipCode { get; private set; }
-        public string Line { get; private set; }
+        public string Province { get; set; }
+        public string District { get; set; }
+        public string Street { get; set; }
+        public string ZipCode { get; set; }
+        public string Line { get; set; }
 
         public Address(string province, string district, string street, string zipCode, string line)
         {
