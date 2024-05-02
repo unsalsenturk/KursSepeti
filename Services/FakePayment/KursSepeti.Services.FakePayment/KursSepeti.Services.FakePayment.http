@@ -1,0 +1,6 @@
+@KursSepeti.Services.FakePayment_HostAddress = http://localhost:5016
+
+GET {{KursSepeti.Services.FakePayment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
